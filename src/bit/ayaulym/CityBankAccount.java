@@ -41,8 +41,8 @@ public class CityBankAccount implements BankAccount {
     }
 
     @Override
-    public void debetBalance(int debet) {
-        balance = balance + debet;
+    public void debitBalance(int debit) {
+        balance = balance + debit;
     }
 
     @Override

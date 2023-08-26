@@ -19,23 +19,27 @@ public class CityBankATM {
         }
         if (ba instanceof CityBankAccount) {
             while (true) {
-                System.out.println("\n" +
-                        "               PRESS [1] TO CASH WITHDRAWAL\n" +
-                        "\n" +
-                        "               PRESS [2] TO VIEW BALANCE\n" +
-                        "\n" +
-                        "               PRESS [3] TO CHANGE PIN CODE\n" +
-                        "\n" +
-                        "               PRESS [4] TO CASH IN ACCOUNT\n" +
-                        "\n" +
-                        "               PRESS [5] TO VIEW ACCOUNT DATA\n" +
-                        "\n" +
-                        "               PRESS [6] TO EXIT // выход\n");
+                System.out.println("""
+
+                                       PRESS [1] TO CASH WITHDRAWAL
+
+                                       PRESS [2] TO VIEW BALANCE
+
+                                       PRESS [3] TO CHANGE PIN CODE
+
+                                       PRESS [4] TO CASH IN ACCOUNT
+
+                                       PRESS [5] TO VIEW ACCOUNT DATA
+
+                                       PRESS [6] TO EXIT
+                        """);
                 int choice = scanner.nextInt();
                 if (choice == 1) {
                     System.out.println("What amount?: ");
                     int s = scanner.nextInt();
-                    ba.creditBalance(s);
+                    if (s < ba.totalBalance()) {
+                        ba.creditBalance(s);
+                    } else System.out.println("Not enough cash");
                 } else if (choice == 2) {
                     System.out.println(ba.totalBalance());
                 } else if (choice == 3) {
@@ -45,7 +49,7 @@ public class CityBankATM {
                 } else if (choice == 4) {
                     System.out.println("What amount?: ");
                     choice = scanner.nextInt();
-                    ba.debetBalance(choice);
+                    ba.debitBalance(choice);
                 } else if (choice == 5) {
                     System.out.println(ba.accountData());
                 } else if (choice == 6) {
@@ -54,18 +58,22 @@ public class CityBankATM {
             }
         } else {
             while (true) {
-                System.out.println("\n" +
-                        "               PRESS [1] TO CASH WITHDRAWAL\n" +
-                        "\n" +
-                        "               PRESS [2] TO VIEW BALANCE\n" +
-                        "\n" +
-                        "               PRESS [3] TO EXIT");
+                System.out.println("""
+
+                                       PRESS [1] TO CASH WITHDRAWAL
+
+                                       PRESS [2] TO VIEW BALANCE
+
+                                       PRESS [3] TO EXIT\
+                        """);
                 int choice = scanner.nextInt();
                 if (choice == 1) {
                     System.out.println("What amount?: ");
                     int n = scanner.nextInt();
+                    assert ba != null;
                     ba.creditBalance(n);
                 } else if (choice == 2) {
+                    assert ba != null;
                     System.out.println("\n" + ba.totalBalance());
                 } else if (choice == 3) {
                     System.exit(0);

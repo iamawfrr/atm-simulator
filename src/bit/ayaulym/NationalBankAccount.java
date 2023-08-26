@@ -32,7 +32,7 @@ public class NationalBankAccount implements BankAccount {
     }
 
     @Override
-    public void debetBalance(int debet) {
+    public void debitBalance(int debit) {
     }
 
     @Override

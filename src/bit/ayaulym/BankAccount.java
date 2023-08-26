@@ -11,7 +11,7 @@ public interface BankAccount {
 
     void creditBalance(int credit); // Данный метод мы используем при снятии денег со счета
 
-    void debetBalance(int debet); // Данный метод мы используем при добавлении денег к счету
+    void debitBalance(int debit); // Данный метод мы используем при добавлении денег к счету
 
     String accountData(); // Данный метод возвращает данные о клиенте
 }
